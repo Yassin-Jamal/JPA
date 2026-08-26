@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diensten | Jpa Belastingen &amp; Administraties</title>
+<meta name="description" content="Boekhouding, belastingaangiften, salarisadministratie en jaarrekeningen voor ZZP en MKB in Den Haag. Ontdek wat elke dienst precies inhoudt.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/tailwind-config.js"></script>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body class="min-h-screen bg-background">
+
+<div id="slot-header"></div>
+
+<main>
+  <section class="pt-36 pb-16 lg:pt-44 lg:pb-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="max-w-3xl" data-reveal>
+        <p class="inline-flex items-center gap-2 text-sm font-semibold tracking-widest uppercase text-accent mb-5">
+          <span class="w-8 h-px bg-accent" aria-hidden="true"></span>Diensten
+        </p>
+        <h1 class="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-primary tracking-tight leading-[1.1]">Vakmanschap in elke dienst, sinds 1992.</h1>
+        <p class="mt-6 text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-2xl">Of het nu gaat om uw boekhouding, aangiften of salarisadministratie: alles wordt geregeld met de precisie van meer dan 34 jaar ervaring. Ontdek hieronder precies wat elke dienst inhoudt.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 lg:py-32 bg-secondary">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 space-y-8" id="detail-list"></div>
+  </section>
+
+  <section class="py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-12 gap-14 items-center">
+        <div class="lg:col-span-6">
+          <div data-reveal>
+            <p class="text-sm font-semibold tracking-widest uppercase text-accent mb-4">Voor wie</p>
+            <h2 class="font-heading font-bold text-4xl lg:text-5xl text-primary tracking-tight mb-10">Gemaakt voor ondernemers zoals u.</h2>
+          </div>
+          <div class="space-y-6">
+            <div data-reveal data-delay="100">
+              <div class="flex items-start gap-5 rounded-2xl border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10">
+                <div class="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center shrink-0"><i data-ic="user" data-sw="1.5" class="w-6 h-6 text-accent"></i></div>
+                <div>
+                  <h3 class="font-heading font-bold text-xl text-primary mb-2">Voor ZZP&rsquo;ers</h3>
+                  <p class="text-muted-foreground leading-relaxed">U wilt ondernemen, niet boekhouden. Ik regel uw administratie en aangiften voor een vaste, eerlijke prijs &mdash; zodat u nooit voor verrassingen staat.</p>
+                </div>
+              </div>
+            </div>
+            <div data-reveal data-delay="200">
+              <div class="flex items-start gap-5 rounded-2xl border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10">
+                <div class="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center shrink-0"><i data-ic="building-2" data-sw="1.5" class="w-6 h-6 text-accent"></i></div>
+                <div>
+                  <h3 class="font-heading font-bold text-xl text-primary mb-2">Voor het MKB</h3>
+                  <p class="text-muted-foreground leading-relaxed">Van eenmanszaak tot BV met personeel: ik groei met u mee. Complete administratie, salarissen en jaarcijfers, met &eacute;&eacute;n vast aanspreekpunt.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-6" data-reveal data-delay="150">
+          <div class="rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl shadow-primary/15">
+            <img src="assets/werkplek.jpg" alt="Overzichtelijke werkplek van een ervaren adviseur" loading="lazy" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="slot-contact"></div>
+</main>
+
+<div id="slot-footer"></div>
+
+<script src="assets/site.js"></script>
+<script>
+const DETAILS = [
+  ['01','Boekhouding &amp; financi&euml;le administratie',
+   'Het fundament van uw bedrijf, feilloos georganiseerd. Ik verwerk uw complete administratie &mdash; van facturen tot bankmutaties &mdash; zodat u altijd actueel inzicht heeft.',
+   ['Verwerking van in- en verkoopfacturen','Bank- en kasadministratie','Periodieke tussenrapportages','Digitaal aanleveren, geen schoenendozen']],
+  ['02','Belastingaangiften',
+   'BTW, inkomstenbelasting en vennootschapsbelasting: altijd op tijd, altijd correct. U betaalt wat wettelijk klopt &mdash; niets meer, niets minder.',
+   ['BTW-aangifte per kwartaal of maand','Aangifte inkomstenbelasting voor ondernemers en priv&eacute;','Vennootschapsbelasting voor BV&rsquo;s','Bezwaar en correspondentie met de Belastingdienst']],
+  ['03','Salarisadministratie',
+   'Zorgeloos voor uw team, punctueel voor u. De complete loonadministratie verzorgd, van loonstrook tot afdracht.',
+   ['Maandelijkse loonstroken','Loonaangiften en afdrachten','Jaaropgaven voor uw medewerkers','Advies bij in- en uitdiensttreding']],
+  ['04','Jaarrekeningen &amp; belastingadvies',
+   'Een helder jaarbeeld dat banken en investeerders overtuigt, plus eerlijk advies dat verder kijkt dan de cijfers van vandaag.',
+   ['Samenstellen van de jaarrekening','Publicatiestukken voor de KVK','Fiscale planning en optimalisatie','Persoonlijk adviesgesprek, minimaal jaarlijks']]
+];
+
+document.getElementById('detail-list').innerHTML = DETAILS.map(function (d, i) {
+  const items = d[3].map(function (t) {
+    return '<li class="flex items-start gap-3">' +
+      '<i data-ic="check" data-sw="1.5" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i>' +
+      '<span class="text-sm text-primary/80">' + t + '</span></li>';
+  }).join('');
+
+  return '<div data-reveal data-delay="' + (i * 90) + '">' +
+    '<div class="rounded-3xl bg-card border border-border p-8 lg:p-12 grid lg:grid-cols-12 gap-8 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:border-accent/40">' +
+      '<div class="lg:col-span-7">' +
+        '<p class="font-heading font-bold text-sm text-accent tracking-widest mb-3">' + d[0] + '</p>' +
+        '<h2 class="font-heading font-bold text-2xl lg:text-3xl text-primary tracking-tight mb-4">' + d[1] + '</h2>' +
+        '<p class="text-muted-foreground leading-relaxed">' + d[2] + '</p>' +
+      '</div>' +
+      '<ul class="lg:col-span-5 space-y-3 lg:border-l lg:border-border lg:pl-10 self-center">' + items + '</ul>' +
+    '</div></div>';
+}).join('');
+</script>
+</body>
+</html>

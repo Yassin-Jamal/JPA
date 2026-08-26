@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Over ons | Jpa Belastingen &amp; Administraties</title>
+<meta name="description" content="Een persoonlijk kantoor voor ZZP en MKB in Den Haag. Het verhaal, de mijlpalen en de kernwaarden achter Jpa Belastingen &amp; Administraties.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/tailwind-config.js"></script>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body class="min-h-screen bg-background">
+
+<div id="slot-header"></div>
+
+<main>
+  <section class="pt-36 pb-16 lg:pt-44 lg:pb-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="max-w-3xl" data-reveal>
+        <p class="inline-flex items-center gap-2 text-sm font-semibold tracking-widest uppercase text-accent mb-5">
+          <span class="w-8 h-px bg-accent" aria-hidden="true"></span>Over ons
+        </p>
+        <h1 class="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-primary tracking-tight leading-[1.1]">E&eacute;n vertrouwd gezicht, ruim 34 jaar lang.</h1>
+        <p class="mt-6 text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-2xl">Jpa Belastingen &amp; Administraties is een persoonlijk kantoor voor ZZP&rsquo;ers en het MKB in Den Haag en omstreken. Dit is het verhaal erachter.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-12 gap-14 items-center">
+        <div class="lg:col-span-6" data-reveal>
+          <div class="relative">
+            <div class="rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl shadow-primary/15">
+              <img src="assets/scheveningen.png" alt="De Pier van Scheveningen met het reuzenrad aan de Haagse kust" loading="lazy" class="w-full h-full object-cover">
+            </div>
+            <div aria-hidden="true" class="absolute -z-10 -bottom-6 -left-6 w-full h-full rounded-3xl border border-accent/30"></div>
+          </div>
+        </div>
+        <div class="lg:col-span-6">
+          <div data-reveal data-delay="100">
+            <p class="text-sm font-semibold tracking-widest uppercase text-accent mb-4">Mijn verhaal</p>
+            <h2 class="font-heading font-bold text-4xl lg:text-5xl text-primary tracking-tight leading-tight">Gebouwd op vertrouwen, jaar na jaar.</h2>
+          </div>
+          <div data-reveal data-delay="180">
+            <p class="mt-7 text-lg text-muted-foreground leading-relaxed">Wat ooit begon als een eigen praktijk in Den Haag, is dat nog altijd: &eacute;&eacute;n vaste adviseur die uw zaken kent. Veel cli&euml;nten zijn er al tientallen jaren bij, en dat is geen toeval.</p>
+            <p class="mt-5 text-lg text-muted-foreground leading-relaxed">Terwijl de belastingwereld digitaliseerde en de regels talloze keren veranderden, bleef &eacute;&eacute;n ding hetzelfde: u spreekt altijd mij, geen menukeuze. Persoonlijk, betrokken en zeven dagen per week bereikbaar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 lg:py-32 bg-primary">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="max-w-2xl mb-16" data-reveal>
+        <p class="text-sm font-semibold tracking-widest uppercase text-accent mb-4">Mijlpalen</p>
+        <h2 class="font-heading font-bold text-4xl lg:text-5xl text-primary-foreground tracking-tight">Meer dan drie decennia in beweging.</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10" id="milestones"></div>
+    </div>
+  </section>
+
+  <section class="py-24 lg:py-32 bg-secondary">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="max-w-2xl mb-16" data-reveal>
+        <p class="text-sm font-semibold tracking-widest uppercase text-accent mb-4">Kernwaarden</p>
+        <h2 class="font-heading font-bold text-4xl lg:text-5xl text-primary tracking-tight">Waar ik elke dag voor sta.</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6" id="values"></div>
+    </div>
+  </section>
+
+  <div id="slot-contact"></div>
+</main>
+
+<div id="slot-footer"></div>
+
+<script src="assets/site.js"></script>
+<script>
+const MILESTONES = [
+  ['1992','De oprichting','Jpa Belastingen &amp; Administraties opent haar deuren in Den Haag, met &eacute;&eacute;n overtuiging: belastingen moeten begrijpelijk zijn.'],
+  ['2001','Groei met het MKB','Steeds meer kleine en middelgrote bedrijven vinden de weg naar het kantoor &mdash; van winkeliers tot bouwbedrijven.'],
+  ['2015','Vaste vertrouwensband','Cli&euml;nten van het eerste uur zijn er nog steeds bij. Nieuwe ondernemers komen vrijwel altijd binnen op aanbeveling.'],
+  ['Vandaag','34+ jaar vakmanschap','Drie decennia ervaring, &eacute;&eacute;n vertrouwd gezicht. Nog altijd persoonlijk bereikbaar, zeven dagen per week.']
+];
+
+const VALUES = [
+  ['shield-check','Eerlijkheid','Advies dat wettelijk klopt. Geen trucjes, geen grijze gebieden &mdash; advies waar u jaren later nog achter staat.'],
+  ['message-square','Helderheid','Gewone taal in plaats van vakjargon. U begrijpt altijd wat er met uw cijfers gebeurt en waarom.'],
+  ['heart-handshake','Betrokkenheid','U bent geen dossiernummer. Ik ken uw bedrijf, denk met u mee en ben er wanneer u mij nodig heeft.']
+];
+
+document.getElementById('milestones').innerHTML = MILESTONES.map(function (m, i) {
+  return '<div data-reveal data-delay="' + (i * 90) + '"><div class="border-t-2 border-accent pt-6">' +
+    '<p class="font-heading font-bold text-3xl text-accent mb-3">' + m[0] + '</p>' +
+    '<h3 class="font-heading font-bold text-lg text-primary-foreground mb-2">' + m[1] + '</h3>' +
+    '<p class="text-sm text-primary-foreground/60 leading-relaxed">' + m[2] + '</p>' +
+  '</div></div>';
+}).join('');
+
+document.getElementById('values').innerHTML = VALUES.map(function (v, i) {
+  return '<div data-reveal data-delay="' + (i * 90) + '">' +
+    '<div class="h-full rounded-2xl bg-card border border-border p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg hover:shadow-primary/10">' +
+      '<i data-ic="' + v[0] + '" data-sw="1.5" class="w-8 h-8 text-accent mb-5"></i>' +
+      '<h3 class="font-heading font-bold text-xl text-primary mb-3">' + v[1] + '</h3>' +
+      '<p class="text-muted-foreground leading-relaxed">' + v[2] + '</p>' +
+    '</div></div>';
+}).join('');
+</script>
+</body>
+</html>

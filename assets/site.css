@@ -28,6 +28,11 @@ body{
 .font-heading{font-family:var(--font-heading)}
 .glass-nav{background:rgba(253,253,253,.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
 
+/* formulier-statusmeldingen */
+.status-info{color:hsl(var(--muted-foreground))}
+.status-success{color:#15803d}
+.status-error{color:#b91c1c}
+
 /* scroll reveal */
 [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
 [data-reveal].is-in{opacity:1;transform:none}

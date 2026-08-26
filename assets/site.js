@@ -149,9 +149,13 @@ function contactHTML() {
                 '<input id="c-phone" name="telefoon" type="tel" placeholder="06 12345678" class="' + FIELD_CLS + '"></div>' +
               '<div><label for="c-message" class="block text-sm font-medium text-primary mb-2">Uw vraag *</label>' +
                 '<textarea id="c-message" name="bericht" required rows="5" placeholder="Waar kan ik u mee helpen?" class="' + FIELD_CLS + '"></textarea></div>' +
-              '<button type="submit" class="group inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground font-semibold px-8 py-4 text-base transition-all duration-300 hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-0.5 disabled:opacity-60">' +
+              // Honeypot: onzichtbaar voor bezoekers, bots vullen het wel in.
+              '<div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">' +
+                '<label for="c-website">Laat dit veld leeg</label>' +
+                '<input id="c-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>' +
+              '<button type="submit" id="c-submit" class="group inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground font-semibold px-8 py-4 text-base transition-all duration-300 hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-0.5 disabled:opacity-60 disabled:hover:translate-y-0 disabled:cursor-not-allowed">' +
                 '<i data-ic="send" class="w-4 h-4 text-accent transition-transform duration-300 group-hover:translate-x-0.5"></i>Verstuur bericht</button>' +
-              '<p id="form-status" class="text-sm text-muted-foreground hidden"></p>' +
+              '<p id="form-status" class="text-sm status-info hidden" role="status" aria-live="polite"></p>' +
             '</form>' +
           '</div>' +
         '</div>' +
@@ -250,21 +254,67 @@ function initCounters() {
 function initForm() {
   const form = document.getElementById('contact-form');
   if (!form) return;
-  form.addEventListener('submit', function (e) {
+
+  const status = document.getElementById('form-status');
+  const button = document.getElementById('c-submit');
+  const buttonHTML = button ? button.innerHTML : '';
+
+  const setStatus = function (message, tone) {
+    if (!status) return;
+    status.textContent = message;
+    status.classList.remove('hidden', 'status-info', 'status-success', 'status-error');
+    status.classList.add('status-' + (tone || 'info'));
+  };
+
+  form.addEventListener('submit', async function (e) {
     e.preventDefault();
-    const status = document.getElementById('form-status');
+
     const d = new FormData(form);
-    const body =
-      'Naam: ' + (d.get('naam') || '') + '\n' +
-      'E-mail: ' + (d.get('email') || '') + '\n' +
-      'Telefoon: ' + (d.get('telefoon') || '') + '\n\n' +
-      (d.get('bericht') || '');
-    window.location.href = 'mailto:jpvdwal@tiscali.nl' +
-      '?subject=' + encodeURIComponent('Contactaanvraag via website - ' + (d.get('naam') || '')) +
-      '&body=' + encodeURIComponent(body);
-    if (status) {
-      status.textContent = 'Uw e-mailprogramma wordt geopend met het bericht. Lukt dat niet? Mail dan direct naar jpvdwal@tiscali.nl.';
-      status.classList.remove('hidden');
+    const payload = {
+      naam: d.get('naam') || '',
+      email: d.get('email') || '',
+      telefoon: d.get('telefoon') || '',
+      bericht: d.get('bericht') || '',
+      website: d.get('website') || ''
+    };
+
+    if (button) {
+      button.disabled = true;
+      button.textContent = 'Bezig met verzenden...';
+    }
+    setStatus('Uw bericht wordt verzonden...', 'info');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      let data = {};
+      try { data = await res.json(); } catch (_) { /* geen JSON terug */ }
+
+      if (res.ok) {
+        form.reset();
+        setStatus('Bedankt! Uw bericht is verzonden. Ik neem zo snel mogelijk contact met u op.', 'success');
+      } else {
+        setStatus(
+          (data && data.error) ||
+          'Er ging iets mis bij het verzenden. Mail of bel gerust direct: jpvdwal@tiscali.nl / +31 6 24977250.',
+          'error'
+        );
+      }
+    } catch (err) {
+      setStatus(
+        'Geen verbinding met de server. Mail of bel gerust direct: jpvdwal@tiscali.nl / +31 6 24977250.',
+        'error'
+      );
+    } finally {
+      if (button) {
+        button.disabled = false;
+        button.innerHTML = buttonHTML;
+        renderIcons(button);
+      }
     }
   });
 }

@@ -1,8 +1,10 @@
 // Vercel Serverless Function — verstuurt het contactformulier via Resend.
-// Vereist de omgevingsvariabele RESEND_API_KEY (ingesteld in Vercel).
+// Omgevingsvariabelen (ingesteld in Vercel):
+//   RESEND_API_KEY  — vereist
+//   MAIL_TO         — optioneel; overschrijft de ontvanger (handig om te testen)
 
-const FROM = 'JPA Website <forms@mail.permaflare.com>';
-const TO = 'jpvdwal@tiscali.nl';
+const FROM = 'JPA Website <forms@mail.permyron.com>';
+const DEFAULT_TO = 'jpvdwal@tiscali.nl';
 
 const MAX = { naam: 100, email: 200, telefoon: 50, bericht: 5000 };
 
@@ -52,6 +54,18 @@ export default async function handler(req, res) {
   if (!apiKey) {
     console.error('RESEND_API_KEY ontbreekt in de omgevingsvariabelen.');
     return res.status(500).json({ error: 'De mailservice is niet geconfigureerd.' });
+  }
+
+  // MAIL_TO overschrijft de ontvanger; bij een ongeldige waarde valt hij
+  // terug op het vaste adres zodat aanvragen nooit verloren gaan.
+  const override = cleanLine(process.env.MAIL_TO, MAX.email);
+  let recipient = DEFAULT_TO;
+  if (override) {
+    if (isValidEmail(override)) {
+      recipient = override;
+    } else {
+      console.error('MAIL_TO is geen geldig e-mailadres; val terug op', DEFAULT_TO);
+    }
   }
 
   // Vercel parseert JSON automatisch, maar val terug op handmatig parsen.
@@ -119,7 +133,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: FROM,
-        to: [TO],
+        to: [recipient],
         reply_to: email,
         subject,
         text,
